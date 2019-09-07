@@ -7,8 +7,8 @@ class Board
     self.cells = Array.new(9, " ")
   end
 
-  def initialize
-    self.cells = Array.new(9, " ")
+  def initialize(cells = Array.new(9," "))
+    self.cells = cells
   end
 
   def display
