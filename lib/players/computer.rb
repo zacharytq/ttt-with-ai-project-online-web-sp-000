@@ -12,7 +12,7 @@ module Players
 
     def move(board)
       function_board = Board.new(board.cells)
-
+      output = get_branches.max do
     end
 
     def get_opponent_token
@@ -52,20 +52,32 @@ module Players
       static_eval
     end
 
-    def solve(board, player = true, depth = 0)
+    def solve(board, player = true)
       static_eval = get_static_eval(board)
       if board.full? || board.won?
         return static_eval
       else
         branches = get_branches(board)
-        moves = []
         if player
-          moves = branches.map do |i|
+          branches.map do |i|
+            best_value = -1
             holder_board = Board.new(board.cells)
             holder_board.update(i, self.token)
-            moves << 
-
-
-
+            v = solve(holder_board, false)
+            best_value = [best_value, v].max
+          end
+          return best_value
+        else
+          branches.map do |i|
+            best_value = 1
+            holder_board = Board.new(board.cells)
+            holder_board.update(i, self.get_opponent_token)
+            v = solve(holder_board)
+            best_value = [best_value, v].min
+          end
+          return best_value
+        end
+      end
+    end
   end
 end
