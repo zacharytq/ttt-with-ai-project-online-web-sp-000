@@ -3,24 +3,24 @@ module Players
 
     def move(board)
 
-      when " "
-        case board.cells[4]
+      case " "
+      when board.cells[4]
           "5"
-        case board.cells[0]
+        when board.cells[0]
           "1"
-        case board.cells[2]
+        when board.cells[2]
           "3"
-        case board.cells[6]
+        when board.cells[6]
           "7"
-        case board.cells[8]
+        when board.cells[8]
           "9"
-        case board.cells[1]
+        when board.cells[1]
           "2"
-        case board.cells[3]
+        when board.cells[3]
           "4"
-        case board.cells[5]
+        when board.cells[5]
           "6"
-        case board.cells[7]
+        when board.cells[7]
           "8"
         end
 
