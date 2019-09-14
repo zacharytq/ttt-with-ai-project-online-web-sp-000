@@ -1,8 +1,20 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
-player_1 = Players::Computer.new("X")
-player_2 = Players::Computer.new("O")
-new_game = Game.new(player_1, player_2)
+#player_1 = Players::Computer.new("X")
+#player_2 = Players::Computer.new("O")
+#new_game = Game.new(player_1, player_2)
 
-new_game.play
+#new_game.play
+
+def start
+  puts "Welcome to Tic-tac-toe!"
+  puts "Would you like to play a 0, 1, or 2 player game?"
+
+  game_type = gets.strip
+
+  case game_type
+  when "0"
+    Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
+    
+end
