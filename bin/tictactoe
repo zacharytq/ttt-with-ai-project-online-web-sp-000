@@ -16,5 +16,5 @@ def start
   case game_type
   when "0"
     Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
-    
+
 end
