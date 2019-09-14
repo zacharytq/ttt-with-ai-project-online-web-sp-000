@@ -9,22 +9,30 @@ require_relative '../config/environment'
 
 def start
   puts "Welcome to Tic-tac-toe!"
-  puts "Would you like to play a 0, 1, or 2 player game?"
+  continue = "y"
 
-  game_type = gets.strip
+  while continue == "y"
+    puts "Would you like to play a 0, 1, or 2 player game?"
 
-  case game_type
-  when "0"
-    Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
-  when "1"
-    puts "Would you like to go first? [y,n]"
-    if gets.strip == "y"
-      Game.new(Players::Human.new("X"), Players::Computer.new("O"), Board.new).play
-    else
-      Game.new(Players::Computer.new("X"), Players::Human.new("O"), Board.new).
+    game_type = gets.strip
+
+    case game_type
+    when "0"
+      Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
+    when "1"
+      puts "Would you like to go first? [y,n]"
+      if gets.strip == "y"
+        Game.new(Players::Human.new("X"), Players::Computer.new("O"), Board.new).play
+      else
+        Game.new(Players::Computer.new("X"), Players::Human.new("O"), Board.new).
+      end
+    when "2"
+      Game.new(Players::Human.new("X"), Players::Human.new("O"), Board.new).play
     end
-  when "2"
-    Game.new(Players::Human.new("X"), Players::Human.new("O"), Board.new).play
-  end
 
+    puts "Would you like to play another game? [y,n]" 
+
+    continue = gets.strip
+  end
+  
 end
