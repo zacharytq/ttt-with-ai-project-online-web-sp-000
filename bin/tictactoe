@@ -30,9 +30,9 @@ def start
       Game.new(Players::Human.new("X"), Players::Human.new("O"), Board.new).play
     end
 
-    puts "Would you like to play another game? [y,n]" 
+    puts "Would you like to play another game? [y,n]"
 
     continue = gets.strip
   end
-  
+
 end
